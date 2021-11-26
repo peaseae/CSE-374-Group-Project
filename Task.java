@@ -7,14 +7,14 @@ public class Task {
     private int totalEstimate;
     private boolean isFinished;
     private boolean isAssigned;
-    private ArrayList<Task> dependencies;
+    private Task[] dependencies;
 
     // Constructors
     public Task(String input) {
 
     }
 
-    public Task(String name, int[] input, boolean isFinished, ArrayList<Task> dependencies) {
+    public Task(String name, int[] input, boolean isFinished, Task[] dependencies) {
         setName(name);
         setId(input[0]);
         setLevel(input[1]);
@@ -26,7 +26,7 @@ public class Task {
         setDependencies(dependencies);
     }
 
-    public Task(String name, int level, int dueDate, int estimate, ArrayList<Task> dependencies) {
+    public Task(String name, int level, int dueDate, int estimate, Task[] dependencies) {
         setName(name);
         setId(0);
         setLevel(level);
@@ -38,14 +38,14 @@ public class Task {
     }
 
     public boolean hasDependencies() {
-        if (dependencies == null || dependencies.size() == 0) {
+        if (dependencies == null || dependencies.length == 0) {
             return false;
         }
         return true;
     }
     
     public boolean hasUnfinishedDependencies() {
-        if (dependencies == null || dependencies.size() == 0) {
+        if (dependencies == null || dependencies.length == 0) {
             return false;
         }
         for (Task d : dependencies) {
@@ -61,7 +61,7 @@ public class Task {
     }
 
     public void increaseEstimate(int estimate) {
-        this.estimate += estimate;
+        this.totalEstimate += estimate;
     }
 
     // Getters/Setters
@@ -140,11 +140,11 @@ public class Task {
         this.isAssigned = isAssigned;
     }
 
-    public ArrayList<Task> getDependencies() {
+    public Task[] getDependencies() {
         return this.dependencies;
     }
 
-    public void setDependencies(ArrayList<Task> dependencies) {
+    public void setDependencies(Task[] dependencies) {
         this.dependencies = dependencies;
     }
 
