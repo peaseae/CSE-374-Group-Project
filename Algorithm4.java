@@ -45,7 +45,6 @@
             while (users[i].isBusy(daysPassed)) {
                 daysPassed++;
             }
-            
             // print resulting assignments
             System.out.print("User "+users[i].getUserID()+": ");
             for (Task t : users[i].getTasks()) {

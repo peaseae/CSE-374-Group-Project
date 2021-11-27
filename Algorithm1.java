@@ -1,7 +1,6 @@
 
 public class Algorithm1 {
     public static Task[] sortUrgency(Task[] data, int numUsers) {
-        Task[] tasks = new Task[data.length];
         for (Task i : data) {
             if (i.hasDependencies() && i.getEstimate()==i.getTotalEstimate()) {
                 i.increaseEstimate(Algorithm2.CalculateTime(i, numUsers));
@@ -9,10 +8,7 @@ public class Algorithm1 {
             int urgency = i.getDueDate() - i.getTotalEstimate();
             i.setUrgency(urgency);
         }
-        for (Task i : data) {
-            tasks = sort(data);
-        }
-        return tasks;
+        return sort(data);
     }
 
     public static int partition(Task[] list, int low, int high, boolean isRev) {
@@ -64,21 +60,22 @@ public class Algorithm1 {
         return list;
     }
 
+    // main method used for testing
     public static void main(String[] args) {
-        //        Task[] tasks = new Task[10];
-        //        for (int i = 0; i < 10; i++) {
-        //            Task t = new Task("" + i);
-        //            tasks[i] = t;
-        //            tasks[i].setDueDate(10);
-        //            tasks[i].setEstimate(i);
-        //            System.out.print("(" + t.getDueDate() + " " + t.getEstimate() + "), ");
-        //        }
-        //        System.out.println();
-        //        // numUsers hard coded to 3 for testing purposes
-        //        Task[] sortedTasks = sortUrgency(tasks, 3);
-        //        for (Task t : sortedTasks) {
-        //            System.out.print(t.getUrgency() + " ");
-        //        }
+                Task[] tasks = new Task[10];
+                for (int i = 0; i < 10; i++) {
+                    Task t = new Task("" + i);
+                    tasks[i] = t;
+                    tasks[i].setDueDate(10);
+                    tasks[i].setEstimate(i);
+                    System.out.print("(" + t.getDueDate() + " " + t.getEstimate() + "), ");
+                }
+                System.out.println();
+                // numUsers hard coded to 3 for testing purposes
+                Task[] sortedTasks = sortUrgency(tasks, 3);
+                for (Task t : sortedTasks) {
+                    System.out.print(t.getUrgency() + " ");
+                }
     }
 
 }

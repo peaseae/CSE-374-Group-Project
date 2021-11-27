@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Task {
     private String name;
-    private int id, level, urgency, dueDate, estimate;
+    private int id, urgency, dueDate, estimate;
     private int totalEstimate;
     private boolean isFinished;
     private boolean isAssigned;
@@ -17,19 +17,17 @@ public class Task {
     public Task(String name, int[] input, boolean isFinished, Task[] dependencies) {
         setName(name);
         setId(input[0]);
-        setLevel(input[1]);
-        setUrgency(input[2]);
-        setDueDate(input[3]);
-        setEstimate(input[4]);
-        setTotalEstimate(input[4]);
+        setUrgency(input[1]);
+        setDueDate(input[2]);
+        setEstimate(input[3]);
+        setTotalEstimate(input[3]);
         setFinished(isFinished);
         setDependencies(dependencies);
     }
 
-    public Task(String name, int level, int dueDate, int estimate, Task[] dependencies) {
+    public Task(String name, int id, int dueDate, int estimate, Task[] dependencies) {
         setName(name);
         setId(0);
-        setLevel(level);
         setDueDate(dueDate);
         setEstimate(estimate);
         setTotalEstimate(estimate);
@@ -79,17 +77,6 @@ public class Task {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        if (level != 1 && level != 2 && level != 3) {
-            throw new InvalidParameterException("Level musts be 1, 2, or 3!");
-        }
-        this.level = level;
     }
 
     public int getUrgency() {
