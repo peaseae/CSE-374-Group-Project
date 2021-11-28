@@ -126,7 +126,7 @@ public class Task {
     public void setAssigned(boolean isAssigned) {
         this.isAssigned = isAssigned;
     }
-
+   
     public Task[] getDependencies() {
         return this.dependencies;
     }
