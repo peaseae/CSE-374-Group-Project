@@ -53,6 +53,6 @@
             System.out.println();
         }
         // print days to completion
-        System.out.println("\nTime to complete project: "+daysPassed+" days");
+        System.out.println("Time to complete project: "+daysPassed+" days");
     }
   }

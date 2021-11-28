@@ -1,6 +1,7 @@
 
 public class Algorithm1 {
     public static Task[] sortUrgency(Task[] data, int numUsers) {
+        Task[] tasks = new Task[data.length];
         for (Task i : data) {
             if (i.hasDependencies() && i.getEstimate()==i.getTotalEstimate()) {
                 i.increaseEstimate(Algorithm2.CalculateTime(i, numUsers));

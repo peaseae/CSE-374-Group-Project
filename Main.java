@@ -71,12 +71,22 @@ class Main {
 
     public static void main(String[] args) {
         
+        // Run algorithm 1 and print result
         Task[] sortedTasks = Algorithm1.sortUrgency(tasks, users.length);
-        // Print result of algorithm 1
+        System.out.println("Result of Algorithms 1 and 2");
         for (Task t : sortedTasks) {
             System.out.print(t.getName()+":"+t.getTotalEstimate() + "  ");
         }
-        System.out.println("\n");
+        
+        // Run algorithm 3 and print result
+        sortedTasks = Algorithm3.sortTasks(sortedTasks);
+        System.out.println("\n\nResult of Algorithm 3");
+        for (Task t : sortedTasks) {
+            System.out.print(t.getName()+":"+t.getTotalEstimate() + "  ");
+        }
+        
+        // Run algorithm 4, which automatically prints assignments and days passed
+        System.out.println("\n\nResult of Algorithm 4");
         Algorithm4.assignTasks(tasks, users);
     }
 }
